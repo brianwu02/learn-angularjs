@@ -3,8 +3,8 @@
     <title>List of Students</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js"></script>
   </head>
-  <body>
-    <ul ng-controller='StudentListController'>
+  <body ng-controller='StudentListController'>
+    <ul>
       <li ng-repeat='student in students'>
         <a href='/student/view/{{student.id}}'> {{student.name}}</a>
       </li>
@@ -12,28 +12,32 @@
     <button ng-click="insertTom()">insert Tom Brady</button>
     <button ng-click="testAlert()">test alert</button>
     <script>
-      var myAppModule = angular.module('myApp', []);
       var students = [
           { name: 'Brian Wu', id: '1' },
           { name: 'Jack Bauer', id: '2' },
-          { name: 'Claire', id: '3' }
+          { name: 'Claire', id: '3' },
+          { name: 'sean', id: '5'}
           ];
 
+      var myAppModule = angular.module('myApp', []);
       myAppModule.controller('StudentListController', function($scope) {
+          console.log('spot1');
           $scope.students = students;
-      
           $scope.insertTom = function() {
+            console.log('splicing');
             $scope.students.splice(1, 0, { name: 'Tom Brady', id: '4'});
-          };
-
+          }
           $scope.testAlert = function() {
             alert('msg');
             console.log('msg');
-          };
-          
-
-      });
-
+          }
+          console.log('spot2');
+          });
+        function StudentListController($scope) {
+          console.log('here');
+        };
+      
+      
           
     </script>
   </body>
