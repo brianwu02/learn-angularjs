@@ -1,0 +1,26 @@
+
+<html ng-app='myApp'>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js"></script>
+</head>
+  <body>
+  <form ng-controller='StartUpController'>
+    Starting: <input ng-change='computeNeeded()' ng-model='funding.startingEstimate'>
+    Recommendation: {{funding.needed}}
+  </form>
+  <script>
+  var myAppModule = angular.module('myApp', []);
+  myAppModule.controller('StartUpController', function($scope) {
+    $scope.funding = { startingEstimate: 0 };
+
+    computeNeeded = function() {
+      $scope.funding.needed = $scope.funding.startingEstimate * 10;
+    };
+    // this is an angular expression. expressions do simple operations and 
+    // have access to properties in the $scope object.
+    $scope.$watch('funding.startingEstimate', computeNeeded);
+
+  });
+  </script>
+  </body>
+</html>
