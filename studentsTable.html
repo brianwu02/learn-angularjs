@@ -1,0 +1,31 @@
+<html ng-app='myApp'>
+  <head>
+    <title>List of Students</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js"></script>
+  </head>
+  <body>
+    <ul ng-controller='StudentListController'>
+      <li ng-repeat='student in students'>
+        <a href='/student/view/{{student.id}}'> {{student.name}}</a>
+      </li>
+    </ul>
+    <script>
+      var myAppModule = angular.module('myApp', []);
+      myAppModule.controller('StudentListController', function($scope) {
+          $scope.students = students;
+      
+      });
+
+      var students = [
+          { name: 'Brian Wu', id: '1' },
+          { name: 'Jack Bauer', id: '2' },
+          { name: 'Claire', id: '3' }
+          ];
+    
+    
+    </script>
+  </body>
+
+
+
+</html>
