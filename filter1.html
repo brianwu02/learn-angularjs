@@ -1,0 +1,14 @@
+<html ng-app="FilterInControllerModule">
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.js"></script>
+</head>
+  <div ng-controller="FilterController as ctrl">
+    All entries:
+    <span ng-repeat="entry in ctrl.array">{{entry.name}}</span>
+  </div>
+  <div>
+    Entries that contain an a:
+    <span ng-repeat="entry in ctrl.filteredArray">{{entry.name}}</span>
+  </div>
+  <script type="text/javascript" src="js/fitler1.js"></script>
+</html>
