@@ -8,6 +8,7 @@
     Starting: <input ng-change="computeNeeded()" ng-model='startingEstimate'>
     Recommendation: {{needed}}
     <button>Fund my startup!</button>
+    <button ng-click="reset()">Reset</button>
   </form>
   <script>
   var myAppModule = angular.module('myApp', []);
@@ -18,6 +19,10 @@
       
       $scope.requestFunding = function() {
         window.alert('sorry, please get more customers first.');
+      };
+
+      $scope.reset = function() {
+        $scope.startingEstimate = 0;
       };
 
     // this is an angular expression. expressions do simple operations and 
