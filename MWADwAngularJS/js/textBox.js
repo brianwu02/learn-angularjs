@@ -4,14 +4,15 @@ angular.module('SampleApp', [])
     MAX_LEN = 100;
     WARN_THRESHOLD = 50;
 
-
-    $scope.messages = [ {data: 'sample message'} ];
+    $scope.messages = [];
+    $scope.message = '';
 
     $scope.send = function(message_count) {
         // send message to message list.
-        $scope.messages.splice(1, 0, { no: message_count , data: $scope.message });
+        $scope.messages.splice(1, 0, { 
+            data: $scope.message });
         // clear the text 
-        $scope.message = '';
+        $scope.clear();
     };
 
     $scope.clear = function() {
@@ -23,19 +24,21 @@ angular.module('SampleApp', [])
     };
 
     $scope.remaining = function() {
-        try {
-            return MAX_LEN - $scope.message.length;
-        } catch (TypeError) {
-            return 100;
-        }
+        return MAX_LEN - $scope.message.length;
     };
 
-    $scope.shouldWarn = function() {
+    $scope.shouldBeRed = function() {
         return $scope.remaining() < WARN_THRESHOLD;
     };
 
+    $scope.shouldBeGreen = function() {
+        return $scope.remaining() >= WARN_THRESHOLD;
+    };
+
     $scope.hasValidLength = function() {
-        return true;
+            if ($scope.remaining() > 0){
+                return true;
+            }
     };
 
     

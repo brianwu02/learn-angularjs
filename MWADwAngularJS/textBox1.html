@@ -18,7 +18,7 @@
       </span>
 
       <div class="row">
-        <textarea ng-disabled="" ng-model="message">
+        <textarea ng-disabled="!hasValidLength()" ng-model="message">
           {{message}}
         </textarea>
       </div>
