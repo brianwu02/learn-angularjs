@@ -4,6 +4,7 @@
 <style type="text/css">
   .text-warning {
     background-color: red;
+    font-size: 100px;
   }
 </style>
 </head>
@@ -14,7 +15,7 @@
       </span>
 
       <div class="row">
-        <textarea ng-model="message">
+        <textarea ng-disabled="" ng-model="message">
           {{message}}
         </textarea>
       </div>
