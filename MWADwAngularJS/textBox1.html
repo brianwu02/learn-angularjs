@@ -2,16 +2,19 @@
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.js"></script>
 <style type="text/css">
-  .text-warning {
+  .text-red {
     background-color: red;
-    font-size: 100px;
+    font-size: 50px;
   }
+  .text-green {
+    background-color: green;
+    font-size: 50px;
 </style>
 </head>
   <body ng-controller="TextAreaWithLimitControl">
     <div class="container">
-      <span ng-class="{'text-warning' : shouldWarn()}">
-        Remaining: {{remaining()}}
+      <span ng-class="{'text-red' : shouldBeRed(), 'text-green' : shouldBeGreen()}">
+        Remaining: {{ remaining() }}
       </span>
 
       <div class="row">
@@ -28,7 +31,7 @@
 
     <ul ng-model="messages">
       <li ng-repeat='message in messages'>
-      no. {{$index + 1}} {{message.data}}
+      no. {{ $index + 1 }} {{ message.data }}
       <button ng-click="remove($index)">remove</button>
       </li>
     </ul>
