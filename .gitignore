@@ -2,3 +2,4 @@
 *.swap
 *.swp
 **.swp
+.**.swp

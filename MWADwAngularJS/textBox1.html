@@ -1,6 +1,11 @@
 <html ng-app>
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.js"></script>
+<style type="text/css">
+  .text-warning {
+    background-color: red;
+  }
+</style>
 </head>
   <body>
     <div class="container" ng-controller="TextAreaWithLimitControl">
@@ -8,7 +13,9 @@
         Remaining: {{remaining()}}
       </span>
       <div class="row">
-        <textarea ng-model="message">{{message}}</textarea>
+        <textarea ng-model="message">
+          {{message}}
+        </textarea>
       </div>
       <div class="row">
         <button ng-disabled="!hasValidLength()" ng-click="send()">Send</button>
