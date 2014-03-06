@@ -1,14 +1,11 @@
+angular.module('SampleApp', [])
+    .controller('TextAreaWithLimitControl', function($scope) {
 
-var TextAreaWithLimitControl = function($scope) {
     MAX_LEN = 100;
     WARN_THRESHOLD = 50;
 
-
     $scope.remaining = function() {
         messageLength = $scope.message.length;
-        if (typeof messageLength === 'undefined') {
-            messageLength = 0;
-        }
         return MAX_LEN - messageLength;
     };
 
@@ -22,4 +19,4 @@ var TextAreaWithLimitControl = function($scope) {
         }
     };
     
-};
+    });

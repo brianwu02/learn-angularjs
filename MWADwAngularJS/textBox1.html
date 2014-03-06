@@ -1,4 +1,4 @@
-<html ng-app>
+<html ng-app="SampleApp">
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.js"></script>
 <style type="text/css">
@@ -7,8 +7,8 @@
   }
 </style>
 </head>
-  <body>
-    <div class="container" ng-controller="TextAreaWithLimitControl">
+  <body ng-controller="TextAreaWithLimitControl">
+    <div class="container">
       <span ng-class="{'text-warning' : shouldWarn()}">
         Remaining: {{remaining()}}
       </span>
