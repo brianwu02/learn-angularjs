@@ -12,16 +12,25 @@
       <span ng-class="{'text-warning' : shouldWarn()}">
         Remaining: {{remaining()}}
       </span>
+
       <div class="row">
         <textarea ng-model="message">
           {{message}}
         </textarea>
       </div>
+
       <div class="row">
         <button ng-disabled="!hasValidLength()" ng-click="send()">Send</button>
         <button ng-click="clear()">Clear</button>
       </div>
     </div>
+
+    <ul ng-model="messages">
+      <li ng-repeat='message in messages'>
+      no. {{$index + 1}} {{message.data}}
+      <button ng-click="remove($index)">remove</button>
+      </li>
+    </ul>
     <script type="text/javascript" src="js/textBox.js"></script>
   </body>
 </html>
