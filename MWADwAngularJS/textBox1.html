@@ -1,0 +1,17 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.js"></script>
+</head>
+  <body>
+    <div class="container" ng-controller="TextAreaWithLimitCtrl">
+      <span>Remaining: {{remaining()}}</span>
+      <div class="row">
+        <textarea ng-model="message">{{message}}</textarea>
+      </div>
+      <div class="row">
+        <button ng-click="send()">Send</button>
+        <button ng-click="clear()">Clear</button>
+      </div>
+    </div>
+  </body>
+</html>
