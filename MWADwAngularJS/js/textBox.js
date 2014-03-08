@@ -3,13 +3,14 @@ angular.module('sampleApp', ['engines', 'cars'])
   .run(function($rootScope) {
     $rootScope.appStarted = new Date();
   })
-  .controller('TextAreaWithLimitControl', function($scope, helloWorldFactory) {
+  .controller('TextAreaWithLimitControl', function($scope, helloWorldFactory, car) {
     MAX_LEN = 100;
     WARN_THRESHOLD = 50;
     $scope.messages = [];
     $scope.message = '';
 
-  
+    car.start();
+
     $scope.send = function() {
       // send message to message list.
       $scope.messages.splice(1, 0, {
