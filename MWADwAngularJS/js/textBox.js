@@ -1,5 +1,5 @@
 
-angular.module('sampleApp', ['engines'])
+angular.module('sampleApp', ['engines', 'cars'])
   .run(function($rootScope) {
     $rootScope.appStarted = new Date();
   })
@@ -8,6 +8,7 @@ angular.module('sampleApp', ['engines'])
     WARN_THRESHOLD = 50;
     $scope.messages = [];
     $scope.message = '';
+
   
     $scope.send = function() {
       // send message to message list.
@@ -60,11 +61,13 @@ angular.module('sampleApp', ['engines'])
         return "bye bye!";
       }
     };
-  })
+  });
+
+angular.module('cars', [])
   .factory('car', function($log, dieselEngine) {
     return {
       start: function() {
-        $log.info('starting', + dieselEngine.type);
+        $log.info('Starting' + dieselEngine.type);
       }
     };
   });
