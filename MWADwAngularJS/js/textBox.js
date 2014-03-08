@@ -68,8 +68,8 @@ angular.module('cars', [])
   .factory('car', function($log, dieselEngine, tire) {
     return {
       start: function() {
-        $log.info('Starting' + dieselEngine.type);
-        $log.info('car is using ' + tire.type + ' tire');
+        $log.info('Starting ' + dieselEngine.type + ' engine with ' + dieselEngine.mpg);
+        $log.info('car is using ' + tire.type + ' tire with rating: ' + tire.treadRating);
       }
     };
   });
@@ -77,14 +77,16 @@ angular.module('cars', [])
 angular.module('engines', [])
   .factory('dieselEngine', function() {
     return {
-      type: 'diesel'
+      type: 'diesel',
+      mpg: '35mpg'
     };
   });
 
 angular.module('tires', [])
   .factory('tire', function() {
     return {
-      type: 'racing'
+      type: 'racing',
+      treadRating: '50AA'
     };
   });
       
