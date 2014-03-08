@@ -64,13 +64,21 @@ angular.module('sampleApp', ['cars', 'engines', 'tires'])
     };
   });
 
-angular.module('cars', [])
-  .factory('car', function($log, dieselEngine, tire) {
+angular.module('cars', ['carColors'])
+  .factory('car', function($log, dieselEngine, tire, carColor) {
     return {
       start: function() {
         $log.info('Starting ' + dieselEngine.type + ' engine with ' + dieselEngine.mpg);
         $log.info('car is using ' + tire.type + ' tire with rating: ' + tire.treadRating);
+        $log.info('available colors: ' + carColor.colors);
       }
+    };
+  });
+
+angular.module('carColors', [])
+  .factory('carColor', function() {
+    return {
+      colors: 'red'
     };
   });
 
