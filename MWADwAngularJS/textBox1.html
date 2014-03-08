@@ -1,24 +1,30 @@
-<html ng-app="SampleApp">
+<html ng-app="sampleApp">
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.js"></script>
 <style type="text/css">
   .text-red {
     background-color: red;
-    font-size: 25px;
+    font-size: 50px;
   }
   .text-green {
     background-color: green;
-    font-size: 25px;
+    font-size: 50px;
+  }
+  #textBox {
+    width: 300px;
+    height: 50px;
+  }
 </style>
 </head>
   <body ng-controller="TextAreaWithLimitControl">
     <div class="container">
+      <span> App Started: {{ appStarted }}  </span> <br>
       <span ng-class="{'text-red' : shouldBeRed(), 'text-green' : shouldBeGreen()}">
         Remaining: {{ remaining() }}
       </span>
 
       <div class="row">
-        <textarea ng-disabled="!hasValidLength()" ng-model="message">
+        <textarea id="textBox"ng-disabled="!hasValidLength()" ng-model="message">
           {{message}}
         </textarea>
       </div>
@@ -26,6 +32,8 @@
       <div class="row">
         <button ng-disabled="!hasValidLength()" ng-click="send()">Send</button>
         <button ng-click="clear()">Clear</button>
+        <button ng-click="doFactoryMethod1()">doFactoryMethod1</button>
+        <button ng-click="doFactoryMethod2()">doFactoryMethod2</button>
       </div>
     </div>
 
