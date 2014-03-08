@@ -1,5 +1,5 @@
 
-angular.module('sampleApp', ['engines', 'cars'])
+angular.module('sampleApp', ['cars', 'engines', 'tires'])
   .run(function($rootScope) {
     $rootScope.appStarted = new Date();
   })
@@ -65,10 +65,11 @@ angular.module('sampleApp', ['engines', 'cars'])
   });
 
 angular.module('cars', [])
-  .factory('car', function($log, dieselEngine) {
+  .factory('car', function($log, dieselEngine, tire) {
     return {
       start: function() {
         $log.info('Starting' + dieselEngine.type);
+        $log.info('car is using ' + tire.type + ' tire');
       }
     };
   });
@@ -79,4 +80,12 @@ angular.module('engines', [])
       type: 'diesel'
     };
   });
+
+angular.module('tires', [])
+  .factory('tire', function() {
+    return {
+      type: 'racing'
+    };
+  });
+      
   
