@@ -1,5 +1,9 @@
 
-var sampleApp = angular.module('sampleApp', []);
+var sampleApp = angular.module('sampleApp', ['engines']);
+
+sampleApp.run(function($rootScope) {
+    $rootScope.appStarted = new Date();
+  });
 
 sampleApp.controller('TextAreaWithLimitControl', function($scope, helloWorldFactory) {
   MAX_LEN = 100;
@@ -61,3 +65,19 @@ sampleApp.factory('helloWorldFactory', function() {
     }
   };
 });
+
+sampleApp.factory('car', function($log, dieselEngine) {
+  return {
+    start: function() {
+      $log.info('starting', + dieselEngine.type);
+    }
+  };
+});
+
+angular.module('engines', [])
+  .factory('dieselEngine', function() {
+    return {
+      type: 'diesel'
+    };
+  });
+  
