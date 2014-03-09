@@ -17,7 +17,8 @@
 </style>
 </head>
   <body>
-    <div class="container" ng-controller="TextAreaWithLimitControl">
+  <div ng-controller="TextAreaWithLimitControl">
+    <div class="container">
       <span> App Started: {{ appStarted }}  </span> <br>
       <span ng-class="{'text-red' : shouldBeRed(), 'text-green' : shouldBeGreen()}">
         Remaining: {{ remaining() }}
@@ -43,6 +44,13 @@
       <button ng-click="remove($index)">remove</button>
       </li>
     </ul>
+    <div ng-controller="AnotherController">
+      
+      horsepower: {{ steamEngineData.horsepower }}
+     
+    
+    </div>
+  </div>
     <script type="text/javascript" src="js/textBox.js"></script>
   </body>
 </html>
