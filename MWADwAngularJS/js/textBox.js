@@ -12,6 +12,13 @@ angular.module('sampleApp', ['cars', 'engines', 'tires'])
       year : steamEngine.year,
       horsepowerPerCylinder: steamEngine.horsepowerPerCylinder()
     };
+
+    $scope.clearAll = function() {
+      for (var attr in $scope.steamEngineData) {
+        $scope.steamEngineData[attr] = '';
+      }
+    };
+
     $scope.submitDiesel = function() {
       $scope.steamEngineData.year = $scope.steamEngineYear;
       $scope.steamEngineYear = '';
