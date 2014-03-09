@@ -3,7 +3,7 @@ angular.module('sampleApp', ['cars', 'engines', 'tires'])
   .run(function($rootScope) {
     $rootScope.appStarted = new Date();
   })
-  .controller('AnotherController', function($scope, steamEngine) {
+  .controller('DieselController', function($scope, steamEngine) {
     // steamEngine data should be shared with TextAreaWithLimitControl controller
     $scope.steamEngineData = {
       horsepower : steamEngine.horsepower,
@@ -12,6 +12,11 @@ angular.module('sampleApp', ['cars', 'engines', 'tires'])
       year : steamEngine.year,
       horsepowerPerCylinder: steamEngine.horsepowerPerCylinder()
     };
+    $scope.submitDiesel = function() {
+      $scope.steamEngineData.year = $scope.steamEngineYear;
+      $scope.steamEngineYear = '';
+    };
+
   })
   .controller('TextAreaWithLimitControl', function($scope, helloWorldFactory, car, steamEngine) {
     MAX_LEN = 100;

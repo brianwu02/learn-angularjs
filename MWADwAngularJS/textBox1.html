@@ -44,7 +44,16 @@
       <button ng-click="remove($index)">remove</button>
       </li>
     </ul>
-    <div ng-controller="AnotherController">
+    <div ng-controller="DieselController">
+      <form ng-submit="submitDiesel()">
+        Steam Engine Year: <input type="text" ng-model="steamEngineYear"> <br>
+        Steam Engine Cylinders:<input type="text" ng-model="steamEngineCylinders"> <br>
+        Steam Engine Horsepower<input type="text" ng-model="steamEngineHorsepower"> <br>
+        Steam Engine Manufacturer<input type="text" ng-model="steamEngineManufacturer"> <br>
+        <input type="submit">
+      
+      
+      </form>
       
       year: {{ steamEngineData.year }} <br>
       horsepower: {{ steamEngineData.horsepower }} <br>
