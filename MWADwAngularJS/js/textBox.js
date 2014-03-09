@@ -3,13 +3,15 @@ angular.module('sampleApp', ['cars', 'engines', 'tires'])
   .run(function($rootScope) {
     $rootScope.appStarted = new Date();
   })
-  .controller('TextAreaWithLimitControl', function($scope, helloWorldFactory, car) {
+  .controller('TextAreaWithLimitControl', function($scope, helloWorldFactory, car, steamEngine) {
     MAX_LEN = 100;
     WARN_THRESHOLD = 50;
     $scope.messages = [];
     $scope.message = '';
 
     car.start();
+    steamEngine.start();
+    console.log(steamEngine.year);
 
     $scope.send = function() {
       // send message to message list.
@@ -62,6 +64,9 @@ angular.module('sampleApp', ['cars', 'engines', 'tires'])
         return "bye bye!";
       }
     };
+  })
+  .config(function(steamEngineProvider) {
+    steamEngineProvider.setYearMade(2002);
   });
 
 angular.module('cars', ['carColors'])
@@ -87,6 +92,26 @@ angular.module('engines', [])
     return {
       type: 'diesel',
       mpg: '35mpg'
+    };
+  })
+  .provider('steamEngine', function() {
+    var yearMade;
+    return {
+      setYearMade: function(value) {
+        yearMade = value;
+      },
+      $get: function($log) {
+        return {
+          year: yearMade,
+          manufacturer: 'Ford',
+          horsepower: 500,
+          start: function() {
+            $log.info('this steam engine has ' + this.horsepower + ' horsepower');
+            $log.info('manufactured by ' + this.manufacturer);
+            $log.info('made in year ' + this.year);
+          }
+        };
+      }
     };
   });
 
