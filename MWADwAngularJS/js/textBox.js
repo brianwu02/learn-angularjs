@@ -67,6 +67,9 @@ angular.module('sampleApp', ['cars', 'engines', 'tires'])
   })
   .config(function(steamEngineProvider) {
     steamEngineProvider.setYearMade(2002);
+    steamEngineProvider.setHorsepower(1000);
+    steamEngineProvider.setManufacturer('Cummins');
+    steamEngineProvider.setCylinders(8);
   });
 
 angular.module('cars', ['carColors'])
@@ -115,10 +118,16 @@ angular.module('engines', [])
       $get: function($log) {
         return {
           year: yearMade,
-          manufacturer: 'Ford',
-          horsepower: 500,
+          manufacturer: manufacturer,
+          horsepower: horsepower,
+          cylinders: cylinders,
+          horsepowerPerCylinder: function() {
+            return (this.horsepower / this.cylinders);
+          },
           start: function() {
             $log.info('this steam engine has ' + this.horsepower + ' horsepower');
+            $log.info('with ' + this.cylinders + ' cylinders');
+            $log.info('with each cylinder making ' + this.horsepowerPerCylinder() + ' horsepower');
             $log.info('manufactured by ' + this.manufacturer);
             $log.info('made in year ' + this.year);
           }
