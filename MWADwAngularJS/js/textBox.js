@@ -4,7 +4,14 @@ angular.module('sampleApp', ['cars', 'engines', 'tires'])
     $rootScope.appStarted = new Date();
   })
   .controller('AnotherController', function($scope, steamEngine) {
-    // steamEngine data should be shared with TextAreaWithLimitControl controller.
+    // steamEngine data should be shared with TextAreaWithLimitControl controller
+    $scope.steamEngineData = {
+      horsepower : steamEngine.horsepower,
+      cylinders : steamEngine.cylinders,
+      manufacturer: steamEngine.manufacturer,
+      year : steamEngine.year,
+      horsepowerPerCylinder: steamEngine.horsepowerPerCylinder()
+    };
   })
   .controller('TextAreaWithLimitControl', function($scope, helloWorldFactory, car, steamEngine) {
     MAX_LEN = 100;
