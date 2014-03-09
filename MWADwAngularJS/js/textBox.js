@@ -3,6 +3,9 @@ angular.module('sampleApp', ['cars', 'engines', 'tires'])
   .run(function($rootScope) {
     $rootScope.appStarted = new Date();
   })
+  .controller('AnotherController', function($scope, steamEngine) {
+    // steamEngine data should be shared with TextAreaWithLimitControl controller.
+  })
   .controller('TextAreaWithLimitControl', function($scope, helloWorldFactory, car, steamEngine) {
     MAX_LEN = 100;
     WARN_THRESHOLD = 50;
@@ -11,7 +14,6 @@ angular.module('sampleApp', ['cars', 'engines', 'tires'])
 
     car.start();
     steamEngine.start();
-    console.log(steamEngine.year);
 
     $scope.send = function() {
       // send message to message list.
