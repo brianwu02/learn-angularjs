@@ -4,11 +4,11 @@
 <style type="text/css">
   .text-red {
     background-color: red;
-    font-size: 50px;
+    font-size: 40px;
   }
   .text-green {
     background-color: green;
-    font-size: 50px;
+    font-size: 40px;
   }
   #textBox {
     width: 300px;
@@ -16,8 +16,8 @@
   }
 </style>
 </head>
-  <body ng-controller="TextAreaWithLimitControl">
-    <div class="container">
+  <body>
+    <div class="container" ng-controller="TextAreaWithLimitControl">
       <span> App Started: {{ appStarted }}  </span> <br>
       <span ng-class="{'text-red' : shouldBeRed(), 'text-green' : shouldBeGreen()}">
         Remaining: {{ remaining() }}
