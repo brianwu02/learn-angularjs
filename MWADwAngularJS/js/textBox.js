@@ -34,6 +34,18 @@ angular.module('sampleApp', ['cars', 'engines', 'tires'])
     car.start();
     steamEngine.start();
 
+    $scope.addDieselData = function() {
+      var hp = steamEngine.horsepower;
+      var hpc = steamEngine.horsepowerPerCylinder();
+      var year = steamEngine.year;
+      var cylinders = steamEngine.cylinders;
+      var manu = steamEngine.manufacturer;
+      var steamEngineMessage = year + ' ' + manu + ' ' + cylinders + ' cylinders ';
+      steamEngineMessage += 'with ' + hp + ' horsepower and ' + hpc + 'hp per cylinder';
+
+      $scope.messages.splice(1, 0, { data: steamEngineMessage });
+    };
+
     $scope.send = function() {
       // send message to message list.
       $scope.messages.splice(1, 0, {
