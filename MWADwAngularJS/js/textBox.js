@@ -96,9 +96,21 @@ angular.module('engines', [])
   })
   .provider('steamEngine', function() {
     var yearMade;
+    var manufacturer;
+    var horsepower;
+    var cylinders;
     return {
       setYearMade: function(value) {
         yearMade = value;
+      },
+      setManufacturer: function(value) {
+        manufacturer = value;
+      },
+      setHorsepower: function(value) {
+        horsepower = value;
+      },
+      setCylinders: function(value) {
+        cylinders = value;
       },
       $get: function($log) {
         return {
